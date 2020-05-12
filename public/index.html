@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="addCount">{{count}}</div>
+        <div>{{hellow.world}}</div>
+        <div v-text="count"></div>
+    </div>
+    
+    <script type="module">
+        import Vue from "./vue/index.js";
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+                say:{
+                    hellow: "world"
+                }
+            },
+            methods: {
+                addCount() {
+                    console.log("???")
+                    this.count++
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

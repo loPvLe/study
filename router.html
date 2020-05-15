@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/home">Home</router-link>
+        <router-link to="/foo">Foo</router-link>
+        <router-view />
+    </div>
+    <script src="./vue/dist/vue.js"></script>
+    <script src="./vue-router.js">
+
+    </script>
+
+
+    <script>
+        var Home = Vue.component('Home', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<div><button v-on:click="count++">You clicked me {{ count }} times.</button></div>'
+        })
+
+        var Foo = Vue.component('Foo', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<p>foo</p>'
+        })
+
+        const router = new VueRouter({
+            mode: 'history',
+            routes: [
+                { path: '/home', component: Home },
+                { path: '/foo', component: Foo },
+            ]
+        })
+
+        var vm = new Vue({
+            router,
+            el: "#app"
+        })
+        
+    </script>
+</body>
+
+</html>
